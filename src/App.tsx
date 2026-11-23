@@ -21,6 +21,32 @@ const VideoModal = lazy(() => import('./components/VideoModal').then((m) => ({ d
 export function App() {
   useEffect(() => {
     document.title = SITE.pageTitle;
+
+    // Immediately remove any existing hash (like /#contact) from the browser address bar
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    // Intercept in-page anchor clicks so the URL remains clean without showing /#contact
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a');
+      if (!target) return;
+      const href = target.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1) {
+        e.preventDefault();
+        const targetId = href.slice(1);
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+          if (window.history.replaceState) {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
   const [loading, setLoading] = useState(true);
@@ -55,6 +81,9 @@ export function App() {
     setIsModalOpen(false);
     const contactSection = document.getElementById('contact');
     contactSection?.scrollIntoView({ behavior: 'smooth' });
+    if (window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   };
 
   return (
