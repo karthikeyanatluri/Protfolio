@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { SITE, ABOUT, EDUCATION, EXPERIENCE } from '../data/portfolioData';
+import { SITE, ABOUT, EDUCATION } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -269,29 +269,7 @@ export const About: React.FC = () => {
                 </div>
               )}
 
-              {/* Experience & Leadership */}
-              {EXPERIENCE && EXPERIENCE.length > 0 && (
-                <div className="border-t border-white/10 pt-6">
-                  <h3 className="text-xs md:text-base font-bold uppercase tracking-wider text-gray-400 mb-4">
-                    Experience &amp; Leadership
-                  </h3>
-                  <div className="flex flex-col gap-4">
-                    {EXPERIENCE.map((exp, idx) => (
-                      <div key={idx} className="glass-chip rounded-2xl p-4 flex flex-col gap-1.5">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                          <h4 className="font-bold text-sm md:text-base text-gray-100">
-                            {exp.role} <span className="text-red-500 font-normal">·</span> {exp.organization}
-                          </h4>
-                          <span className="text-[11px] font-mono tracking-wider text-gray-400">
-                            {exp.period}
-                          </span>
-                        </div>
-                        <p className="text-xs md:text-sm text-gray-400">{exp.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+
 
 
 

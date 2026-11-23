@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
 import { Projects } from './components/Projects';
 import { About } from './components/About';
+import { Experience } from './components/Experience';
 import { Services } from './components/Services';
 import { Skills } from './components/Skills';
 import { Certifications } from './components/Certifications';
@@ -112,6 +113,7 @@ export function App() {
         <Stats />
         <Projects onSelectProject={handleSelectProject} />
         <About />
+        <Experience />
         <Services />
         <Skills />
         <Certifications />
