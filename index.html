@@ -11,6 +11,50 @@
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" />
     <link rel="stylesheet" href="/src/index.css" />
+    <script>
+      (function() {
+        if (window.location.protocol === 'file:') {
+          // If opened directly from Windows Explorer (file://), redirect to local dev server
+          fetch('http://localhost:8080/', { mode: 'no-cors' })
+            .then(function() {
+              window.location.href = 'http://localhost:8080/';
+            })
+            .catch(function() {
+              fetch('http://localhost:5173/', { mode: 'no-cors' })
+                .then(function() {
+                  window.location.href = 'http://localhost:5173/';
+                })
+                .catch(function() {
+                  document.addEventListener('DOMContentLoaded', function() {
+                    document.body.innerHTML = `
+                      <div style="background:#07070a;color:#f3f4f6;font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;">
+                        <div style="max-width:520px;background:rgba(18,18,22,0.95);border:1px solid rgba(255,42,59,0.35);border-radius:24px;padding:40px 32px;box-shadow:0 20px 60px rgba(0,0,0,0.9),0 0 50px rgba(255,42,59,0.15);">
+                          <div style="color:#ff2a3b;font-weight:900;letter-spacing:0.2em;font-size:11px;margin-bottom:12px;text-transform:uppercase;">Karthikeyan Atluri Portfolio</div>
+                          <h1 style="color:#fff;font-size:24px;font-weight:900;margin:0 0 16px;text-transform:uppercase;">Local Server Required</h1>
+                          <p style="color:#9ca3af;font-size:14px;line-height:1.6;margin-bottom:28px;">
+                            This is an interactive React + Three.js application. Web browsers do not execute TypeScript modules directly via <code>file://</code>.<br/><br/>
+                            Please view via your local server:
+                          </p>
+                          <div style="display:flex;flex-direction:column;gap:12px;">
+                            <a href="http://localhost:8080/" style="background:#ff2a3b;color:#fff;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:9999px;font-size:13px;letter-spacing:0.05em;display:inline-block;box-shadow:0 0 20px rgba(255,42,59,0.5);">
+                              OPEN LOCALHOST:8080
+                            </a>
+                            <a href="http://localhost:5173/" style="background:rgba(255,255,255,0.06);color:#e5e7eb;border:1px solid rgba(255,255,255,0.15);text-decoration:none;font-weight:600;padding:12px 24px;border-radius:9999px;font-size:13px;display:inline-block;">
+                              OPEN LOCALHOST:5173
+                            </a>
+                          </div>
+                          <p style="color:#6b7280;font-size:12px;margin-top:24px;line-height:1.5;">
+                            Tip: You can also double-click <strong>Run_Portfolio.bat</strong> in this folder to launch the server automatically.
+                          </p>
+                        </div>
+                      </div>
+                    `;
+                  });
+                });
+            });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
