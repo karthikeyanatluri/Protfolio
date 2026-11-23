@@ -169,16 +169,11 @@ export const HangingPhoto: React.FC = () => {
   );
 };
 
-const STACK = ABOUT.technologies;
-
-const FOCUS = ABOUT.focus;
-
 export const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headRef = useRef<HTMLHeadingElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const photoCardRef = useRef<HTMLDivElement>(null);
-  const stackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -196,12 +191,6 @@ export const About: React.FC = () => {
           photoCardRef.current,
           { scale: 0.85, opacity: 0 },
           { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.2)' },
-          '-=0.6'
-        )
-        .fromTo(
-          stackRef.current?.children || [],
-          { scale: 0.7, opacity: 0, y: 15 },
-          { scale: 1, opacity: 1, y: 0, duration: 0.4, stagger: 0.04, ease: 'back.out(1.5)' },
           '-=0.6'
         );
 
@@ -250,48 +239,7 @@ export const About: React.FC = () => {
                 ))}
               </div>
 
-              <div>
-                <h3 className="text-xs md:text-base font-bold uppercase tracking-wider text-gray-400 mb-3 md:mb-4">
-                  Technologies
-                </h3>
-                <div ref={stackRef} className="flex flex-wrap gap-2 md:gap-3">
-                  {STACK.map((tool) => (
-                    <span
-                      key={tool}
-                      className="tech-pill glass-chip px-3.5 py-1.5 text-xs md:px-5 md:py-2.5 md:text-lg font-bold text-gray-200 rounded-full cursor-default"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
 
-              <div>
-                <h3 className="text-xs md:text-base font-bold uppercase tracking-wider text-gray-400 mb-3 md:mb-4">
-                  Three Main Areas of Focus
-                </h3>
-                <div className="grid grid-cols-1 gap-3">
-                  {FOCUS.map((f) => {
-                    const title = typeof f === 'string' ? f : f.title;
-                    const desc = typeof f === 'string' ? null : f.description;
-                    return (
-                      <div
-                        key={title}
-                        className="glass-chip rounded-2xl p-4 border border-red-500/20 bg-[#a31515]/5 flex flex-col gap-1"
-                      >
-                        <h4 className="font-bold text-sm md:text-base text-red-300">
-                          {title}
-                        </h4>
-                        {desc && (
-                          <p className="text-xs md:text-sm text-gray-300/80 leading-relaxed">
-                            {desc}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
 
               {/* Education */}
               {EDUCATION && EDUCATION.length > 0 && (

@@ -63,8 +63,9 @@ export const ABOUT = {
   portraitAlt: 'Portrait of Karthikeyan Atluri',
   portraitCaption: 'Aspiring Software Engineer',
   paragraphs: [
-    'I am Karthikeyan Atluri, an Information Technology undergraduate at Siddhartha Academy of Higher Education, passionate about software engineering, artificial intelligence, and cybersecurity.',
-    'I focus on building practical applications, exploring intelligent systems, and learning secure digital infrastructure while continuously expanding my technical problem-solving skills.',
+    'I am Karthikeyan Atluri, an Information Technology undergraduate at Siddhartha Academy of Higher Education, passionate about software engineering, artificial intelligence, and building practical solutions to real-world problems.',
+    'I have a strong interest in Cybersecurity and Information Security—actively studying network operations, vulnerability analysis, and defensive digital practices to build robust, secure software systems.',
+    'Driven by curiosity and a problem-solving mindset, I continuously expand my technical capabilities across modern application development, intelligent systems, and secure infrastructure.',
   ],
   technologies: [
     'Python',
