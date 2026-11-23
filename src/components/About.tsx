@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { SITE, ABOUT, EDUCATION, EXPERIENCE, CERTIFICATIONS } from '../data/portfolioData';
+import { SITE, ABOUT, EDUCATION, EXPERIENCE } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -345,35 +345,7 @@ export const About: React.FC = () => {
                 </div>
               )}
 
-              {/* Certifications */}
-              {CERTIFICATIONS && CERTIFICATIONS.length > 0 && (
-                <div className="border-t border-white/10 pt-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xs md:text-base font-bold uppercase tracking-wider text-gray-400">
-                      Certifications &amp; Courses
-                    </h3>
-                    <a
-                      href="#certifications"
-                      className="text-xs font-bold text-red-500 hover:text-red-400 transition-colors inline-flex items-center gap-1 uppercase tracking-wider"
-                    >
-                      View All 8 Credentials ↓
-                    </a>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {CERTIFICATIONS.map((cert) => (
-                      <div key={cert.id} className="glass-chip rounded-2xl p-3.5 flex flex-col justify-between">
-                        <div>
-                          <h4 className="font-bold text-xs md:text-sm text-gray-200">{cert.title}</h4>
-                          <span className="text-[11px] text-red-400 font-semibold">{cert.issuer}</span>
-                        </div>
-                        {cert.detail && (
-                          <span className="text-[11px] text-gray-400 mt-1.5 leading-snug">{cert.detail}</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+
 
             </div>
           </div>
