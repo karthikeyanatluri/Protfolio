@@ -630,12 +630,9 @@ export const Hero: React.FC = () => {
                 <VenomButton href="#projects" variant="primary">
                   {HERO.primaryButton}
                 </VenomButton>
-                <a
-                  href="#contact"
-                  className="glass glass-hover inline-flex items-center justify-center px-5 py-3 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-200 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
-                >
+                <VenomButton href="#contact" variant="secondary">
                   {HERO.secondaryButton}
-                </a>
+                </VenomButton>
               </div>
             </div>
           </div>
