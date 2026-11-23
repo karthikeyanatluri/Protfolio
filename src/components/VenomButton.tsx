@@ -86,36 +86,32 @@ export const VenomButton: React.FC<VenomButtonProps> = ({
     flexShrink: 0,
   };
 
+  const baseVariantClass =
+    variant === 'secondary'
+      ? 'glass glass-hover text-white'
+      : 'glass-red text-white shadow-[0_0_24px_rgba(255,18,56,0.35)]';
+
   const shared = {
     ref: hitRef as React.Ref<never>,
     'aria-label': ariaLabel,
     'data-cursor': 'venom',
     onClick,
     style,
-    className: `relative inline-flex items-center justify-center rounded-full select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF1238] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${
-      webgl ? '' : (variant === 'secondary' ? 'glass glass-hover' : 'glass-red')
-    } ${className}`,
+    className: `relative inline-flex items-center justify-center rounded-full select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF1238] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${baseVariantClass} ${className}`,
   };
 
   const inner = (
     <>
-      {/* zero-size anchor at the button's centre; the engine puts its canvas here */}
+      {/* Canvas container for the liquid tendril simulation */}
       <span
         ref={hostRef}
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-0 w-0 overflow-visible"
-        style={{ contain: 'layout paint' }}
+        className="pointer-events-none absolute left-1/2 top-1/2 w-0 h-0 overflow-visible z-20"
       />
-      {/* real text stays in the DOM for screen readers, search and the no-WebGL fallback */}
-      <span
-        className={
-          webgl
-            ? 'pointer-events-none absolute h-px w-px overflow-hidden whitespace-nowrap opacity-0'
-            : 'relative z-10 flex items-center gap-2.5 px-8 text-xs font-bold uppercase tracking-wider text-white md:text-sm'
-        }
-      >
+      {/* High-contrast crisp typography that is always guaranteed visible */}
+      <span className="relative z-10 flex items-center justify-center gap-2.5 px-8 text-xs font-bold uppercase tracking-wider text-white md:text-sm pointer-events-none drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
         {children}
-        {!webgl && icon && <span className="text-[#FF1238]">{icon}</span>}
+        {icon && <span className="text-[#FF1238]">{icon}</span>}
       </span>
     </>
   );
