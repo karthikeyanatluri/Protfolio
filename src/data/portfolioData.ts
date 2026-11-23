@@ -63,12 +63,8 @@ export const ABOUT = {
   portraitAlt: 'Portrait of Karthikeyan Atluri',
   portraitCaption: 'Aspiring Software Engineer',
   paragraphs: [
-    'I am Karthikeyan Atluri, an Information Technology undergraduate at Siddhartha Academy of Higher Education, passionate about software engineering, emerging technologies, and building practical solutions to real-world problems.',
-    'I enjoy exploring different areas of technology, developing applications, experimenting with new tools, and continuously improving my technical knowledge.',
-    'My interests extend beyond software development into Artificial Intelligence, Machine Learning, Cybersecurity, Cloud Computing, and the Internet of Things.',
-    'I am particularly interested in Cybersecurity and Information Security. I enjoy learning how systems and networks operate, understanding vulnerabilities, exploring security practices, and discovering ways to protect digital infrastructure. I aim to continuously strengthen my knowledge in cybersecurity alongside my software engineering skills.',
-    'Beyond technology, I am interested in entrepreneurship, leadership, marketing, finance, and innovation. I enjoy collaborating with people, taking responsibility, organizing activities, and learning through practical experiences.',
-    'My goal is to become a well-rounded technology professional who combines engineering knowledge, creativity, and problem-solving to build meaningful products.',
+    'I am Karthikeyan Atluri, an Information Technology undergraduate at Siddhartha Academy of Higher Education, passionate about software engineering, artificial intelligence, and cybersecurity.',
+    'I focus on building practical applications, exploring intelligent systems, and learning secure digital infrastructure while continuously expanding my technical problem-solving skills.',
   ],
   technologies: [
     'Python',
@@ -88,17 +84,17 @@ export const ABOUT = {
     {
       title: 'SOFTWARE ENGINEERING & FULL-STACK DEVELOPMENT',
       description:
-        'Building practical applications, backend logic, web interfaces, and understanding real-world software architecture.',
+        'Building scalable web applications, robust backends, and modern software architectures.',
     },
     {
       title: 'ARTIFICIAL INTELLIGENCE & MACHINE LEARNING',
       description:
-        'Applying intelligent algorithms, embedded machine learning, computer vision, and generative AI to solve complex problems.',
+        'Developing intelligent models, computer vision applications, and practical AI solutions.',
     },
     {
       title: 'CYBERSECURITY & INFORMATION SECURITY',
       description:
-        'Studying system security, network protection, secure coding practices, vulnerability assessments, and digital defense.',
+        'Understanding system vulnerabilities, network defense, and secure coding practices.',
     },
   ] as (string | FocusArea)[],
 };
